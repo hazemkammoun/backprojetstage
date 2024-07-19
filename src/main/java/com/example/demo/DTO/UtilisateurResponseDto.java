@@ -4,6 +4,7 @@ package com.example.demo.DTO;
 import java.util.List;
 
 import com.example.demo.entities.Demande;
+import com.example.demo.entities.Deplacement;
 import com.example.demo.entities.Equipement;
 import com.example.demo.entities.Leservice;
 import com.example.demo.entities.Reservation;
@@ -38,6 +39,6 @@ public class UtilisateurResponseDto {
 	private List<Reservation> reservation;
 	
 	private List<Equipement> equipement;
-
+	private List<Deplacement> deplacement;
 
 }

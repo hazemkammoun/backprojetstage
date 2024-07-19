@@ -44,5 +44,6 @@ public class Utilisateur implements Serializable {
 	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Equipement> equipement;
 
-
+	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Deplacement> deplacement;
 }
