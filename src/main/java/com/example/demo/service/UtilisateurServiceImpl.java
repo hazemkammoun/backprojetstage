@@ -42,7 +42,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
 	@Override
 	public UtilisateurResponseDto ChercherbyNom(String nom) {
-		Utilisateur utilisateur=utilisateurDao.findByNom(nom);	
+		Optional<Utilisateur> utilisateur=utilisateurDao.findByPrenom(nom);	
 	    return modelMapper.map(utilisateur, UtilisateurResponseDto.class);
 		
 	}
