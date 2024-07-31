@@ -2,7 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
-import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,27 +29,27 @@ public class DemandeController {
 		this.demandeService = demandeService;
 	}
 	@PostMapping()
-	@PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	public DemandeResponseDto ajouterDemande(@RequestBody() DemandeRequestDto demandeRequestDto) {
 		return demandeService.ajouterDemande(demandeRequestDto);
 
 	}
 	
 	@GetMapping()
-	@PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	public List<DemandeResponseDto> listdemande() {
 		return demandeService.findall();
 
 	}
 	
 	 @DeleteMapping("/{id}")
-	    @PreAuthorize("hasAuthority('SCOPE_USER')")
+	   
 	    public void deleteDemande(@PathVariable Integer id) {
 	        demandeService.delete(id);
 	    }
 	 
 	   @GetMapping("/{id}")
-	    @PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	    public DemandeResponseDto getDemandeById(@PathVariable Integer id) {
 	        return demandeService.LoaddemandeById(id);
 	    }

@@ -33,7 +33,7 @@ public class EquipementController {
 	}
 
 	@PostMapping()
-	@PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	public EquipementResponseDto ajouterEquipement(@RequestBody EquipementRequestDto equipementRequestDto) {
 		
 		return equipementService.ajouterEquipement(equipementRequestDto);
@@ -41,26 +41,26 @@ public class EquipementController {
 	}
 
 	@GetMapping()
-	@PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	public List<EquipementResponseDto> getequipement() {
 		return equipementService.findall();
 
 	}
 	
 	@DeleteMapping("/id/{id}")
-	@PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	public void delete(@PathVariable() Integer id) {
 		equipementService.delete(id);
 		System.out.println("Controler contacter");
 	}
 	@GetMapping("{id}")
-	@PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	public EquipementResponseDto LoadequipById(@PathVariable("id") Integer id) {
 		return equipementService.LoadequipById(id);
 		
 	}
 	@PutMapping("/majequip/{id}")
-	@PreAuthorize("hasAuthority('SCOPE_USER')")
+	
 	public EquipementResponseDto updateEquip(@PathVariable("id") Integer id, @RequestBody EquipementRequestDto equipementRequestDto) {
 		  System.out.println("Controller contacté");
 	

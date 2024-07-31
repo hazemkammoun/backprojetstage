@@ -3,7 +3,6 @@ package com.example.demo.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +24,11 @@ DeplacementService deplacementS;
 
 	
 @GetMapping("Listdeplacement")
-@PreAuthorize("hasAuthority('SCOPE_USER')")
 List<Deplacement>afficherdeplacement(){
 	return deplacementS.listdeplacement();
 }
 @PostMapping("/adddeplacement")
-@PreAuthorize("hasAuthority('SCOPE_USER')")
+
 Deplacement ajouterdepacement(@RequestBody Deplacement deplacement) {
 	return deplacementS.ajouterDeplacement(deplacement);
 }
