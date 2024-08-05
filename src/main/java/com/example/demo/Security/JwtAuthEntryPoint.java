@@ -1,15 +1,14 @@
 package com.example.demo.security;
 
+import java.io.IOException;
+
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-
+import jakarta.security.auth.message.AuthException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-
 @Component
 public class JwtAuthEntryPoint  implements AuthenticationEntryPoint{
 
@@ -19,6 +18,5 @@ public class JwtAuthEntryPoint  implements AuthenticationEntryPoint{
 		response.sendError(HttpServletResponse.SC_UNAUTHORIZED,authException.getMessage());
 		
 	}
-
 
 }

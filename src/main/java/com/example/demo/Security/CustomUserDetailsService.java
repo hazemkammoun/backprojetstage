@@ -1,4 +1,9 @@
 package com.example.demo.security;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,10 +16,6 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dao.UtilisateurDao;
 import com.example.demo.entities.Role;
 import com.example.demo.entities.Utilisateur;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 @Service
 public class CustomUserDetailsService implements UserDetailsService{
 private UtilisateurDao userDao;
