@@ -33,6 +33,7 @@ public SalleController(SalleService salleService) {
 }
 
 @PostMapping()
+@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 public SalleResponseDto ajouterSalle(@RequestBody() SalleRequestDto salleRequestDto) {
 	System.out.println("Controller contacted");
 	return salleService.ajouterSalle(salleRequestDto);
@@ -40,7 +41,7 @@ public SalleResponseDto ajouterSalle(@RequestBody() SalleRequestDto salleRequest
 }
 
 @GetMapping()
-
+@PreAuthorize("hasAuthority('SCOPE_USER')")
 public List<SalleResponseDto> getsalle() {
 	return salleService.findall();
 

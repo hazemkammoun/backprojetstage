@@ -33,35 +33,35 @@ public class ReservationController {
 	}
 
 	@PostMapping()
-
+	@PreAuthorize("hasAuthority('SCOPE_USER')")
 	public ReservationResponseDto ajouterReservation(@RequestBody() ReservationRequestDto reservationRequestDto) {
 		return reservationService.ajouterReservation(reservationRequestDto);
 
 	}
 
 	@GetMapping()
-
+	@PreAuthorize("hasAuthority('SCOPE_USER')")
 	public List<ReservationResponseDto> getreservation() {
 		return reservationService.findall();
 
 	}
 	
 	@DeleteMapping("/id/{id}")
-	
+	@PreAuthorize("hasAuthority('SCOPE_USER')")
 	public void delete(@PathVariable() Integer id) {
 		reservationService.delete(id);
 		System.out.println("Controler contacter");
 	}
 	
 	@GetMapping("{id}")
-	
+	@PreAuthorize("hasAuthority('SCOPE_USER')")
 	public ReservationResponseDto LoadReservationById(@PathVariable("id") Integer id) {
 		return reservationService.LoadReservationById(id);
 		
 	}
 	
 	@PutMapping("/majres/{id}")
-	
+	@PreAuthorize("hasAuthority('SCOPE_USER')")
 	public ReservationResponseDto updateReservation(@PathVariable("id") Integer id, @RequestBody ReservationRequestDto reservationRequestDto) {
 		  System.out.println("Controller contacté");
 

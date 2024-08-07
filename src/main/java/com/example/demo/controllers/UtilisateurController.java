@@ -33,51 +33,51 @@ public class UtilisateurController {
 	}
 	
 	@GetMapping("/id/{id}")
-
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public UtilisateurResponseDto ChercherbyId(@PathVariable("id") Integer id) {
 		return utilisateurService.ChercherbyId(id);
 	}
 	
 	@GetMapping("/nom/{nom}")
-
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public UtilisateurResponseDto ChercherbyNom(@PathVariable() String nom) {
 		return utilisateurService.ChercherbyNom(nom);
 		
 	}
 	
 	@DeleteMapping("/id/{id}")
-	
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public void delete(@PathVariable() Integer id) {
 		utilisateurService.delete(id);
 		System.out.println("Controler contacter");
 	}
 	@PutMapping("/id/{id}")
-
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public UtilisateurResponseDto update(@RequestBody() UtilisateurRequestDto utilisateurRequestDto,@PathVariable() Integer id)throws NotFoundException {
 		return utilisateurService.update(utilisateurRequestDto, id);
 	}
 	
 	@GetMapping("{id}")
-
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public UtilisateurResponseDto LoadEmployeeById(@PathVariable("id") Integer id) {
 		return utilisateurService.LoadEmployeeById(id);
 		
 	}
 	@GetMapping()
-	
+	@PreAuthorize("hasAuthority('SCOPE_USER')")
 	public List<UtilisateurResponseDto> getusers() {
 		return utilisateurService.findall();
 		
 	}
 
 	@PostMapping()
-
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public UtilisateurResponseDto AjouterUser(@RequestBody()UtilisateurRequestDto utilisateurRequestDto) {
 	return utilisateurService.Ajouteruser(utilisateurRequestDto);
 			
 	}
 	@PutMapping("/majuser/{id}")
-
+	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public UtilisateurResponseDto updateEmployee(@PathVariable("id") Integer id, @RequestBody UtilisateurRequestDto utilisateurRequestDto) {
 		 System.out.println("Controller contacté");
 		return utilisateurService.update(utilisateurRequestDto ,id);
